@@ -6,3 +6,6 @@ node_modules
 .gitignore
 .eslintignore
 .prettierignore
+
+# Ignore all HTML files:
+**/*.html
