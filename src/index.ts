@@ -1,5 +1,14 @@
-import { BaseService } from '@/core/BaseService';
+import { Base } from '@/core/Base';
+import { Metadata } from './core/Metadata';
+// Symbol.metadata ??= Symbol('Symbol.metadata');
+@Metadata({
+  PARAMS: [
+    {
+      namespace: 'UserService',
+      type: 'UserService',
+    },
+  ],
+})
+class UserService extends Base {}
 
-export class UserService extends BaseService {}
-
-console.log(new UserService().toString());
+console.log(UserService[Symbol.metadata]);

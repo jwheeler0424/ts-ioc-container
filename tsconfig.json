@@ -5,7 +5,7 @@
   "_version": "22.1.0",
 
   "compilerOptions": {
-    "lib": ["es2023", "DOM", "DOM.Iterable"],
+    "lib": ["es2022", "esnext", "DOM", "DOM.Iterable"],
     "module": "node16",
     "target": "es2022",
     "incremental": true,
