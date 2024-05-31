@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function Metadata(metadata?: Record<string | symbol | number, unknown>) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return function <T extends { new (...args: any[]): object }>(
@@ -5,10 +6,8 @@ export function Metadata(metadata?: Record<string | symbol | number, unknown>) {
     target: T,
     ctx: ClassDecoratorContext,
   ) {
-    const data = metadata
-      ? { ...metadata, CLASS: `${__dirname}\\${ctx.name}` }
-      : { CLASS: `${__dirname}\\${ctx.name}` };
+    const data = { CLASS: `${__dirname}\\${ctx.name}`, ...metadata };
 
-    target[Symbol.metadata] = data;
+    target[Symbol.metadata] = { ...target[Symbol.metadata], ...data };
   };
 }
